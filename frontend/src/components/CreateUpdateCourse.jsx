@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../assets/css/AuthAndCourses.css";
 import LogOut from "./Auth/LogOut";
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css'; 
 function CreateUpdateCourse() {
   const [courses, setCourses] = useState([]);
   const [course_name, setCourse_name] = useState("");
@@ -29,6 +31,16 @@ function CreateUpdateCourse() {
   };
   const submitCourse = async (e) => {
     e.preventDefault();
+    if (!course_name || !description || !start_date || !end_date) {
+      Toastify({
+        text: "Please Fill All Field",
+        duration: 3000, 
+        gravity: "top", 
+        position: 'right',
+        backgroundColor: "#CA1616",
+      }).showToast();
+              return;
+    }
     try {
       const response = await axios.post(
         "http://localhost:7000/api/courses/create",
@@ -42,6 +54,13 @@ function CreateUpdateCourse() {
       const result = response.data;
       console.log(result);
       setCourses([...courses, result]);
+      Toastify({
+        text: "Added completely",
+        duration: 3000,
+        gravity: "top", 
+        position: 'right', 
+        backgroundColor: "#5EC693",
+      }).showToast();
       setAddFormVisible(false);
       window.scrollTo(0, 0);
     } catch (err) {
@@ -63,15 +82,31 @@ function CreateUpdateCourse() {
     }
   };
   const handleUpdate = async (id) => {
+    if (!course_name || !description || !start_date || !end_date) {
+      Toastify({
+        text: "Please Fill All Field",
+        duration: 3000, 
+        gravity: "top", 
+        position: 'right',
+        backgroundColor: "#CA1616",
+      }).showToast();
+              return;
+    }
     try {
       const response = await axios.put(
         `http://localhost:7000/api/courses/update/${id}`,
         { course_name, description, start_date, end_date }
       );
-      console.log(response.data);
       setCourses((course) =>
         course.map((data) => (data.id === id ? response.data : data))
       );
+      Toastify({
+        text: "Updated completely",
+        duration: 3000, 
+        gravity: "top", 
+        position: 'right', 
+        backgroundColor: "#5EC693",
+      }).showToast();
       setIsUpdateFormVisible(false);
     } catch (error) {
       console.log(`Error: ${error}`);
