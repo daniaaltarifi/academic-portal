@@ -1,0 +1,120 @@
+
+.welcome_container{
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'center';
+  height: '100vh';
+  flex-direction: 'column';
+  text-align: 'center';
+}
+.animation_img{
+  max-width: '100%'; max-width: '50%' 
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+}
+#form-data {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+
+}
+.form-user{
+  margin: 50px auto;
+   background-color: #4277ae; 
+border-radius: 15px;
+}
+.control-form{
+  color: #000;
+  margin: 45px;
+}
+.control-form h1  {
+  color: #4277ae !important;
+}
+#form-data h1 {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
+
+#form-data form {
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+#form-data form label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: gray;
+  font-family: "Poppins", sans-serif;
+}
+
+#form-data form input[type="text"],
+#form-data form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+#form-data form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #4277ae;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+#form-data form input[type="submit"]:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.date-style{
+  width: 100%;
+  padding: 12px;
+}
+
+.container_role {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 10px; 
+}
+
+.title_role {
+  flex-grow: 1;
+  text-align: center; 
+}
+
+.btn-add{
+  display: flex;
+  justify-content:end;
+  align-items: end;
+}
+ @media screen and (max-width:600px){
+  .control-form{
+    display: grid;
+    justify-content: center;
+    margin-left:25%;
+  }
+ }
